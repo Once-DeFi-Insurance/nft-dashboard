@@ -70,7 +70,7 @@ export default function CollectionView({light, vibrant, dark}) {
 
     // Request for floor prices and add parameters to format for graph
       try{
-        const resp = await axios.get(api_call, {auth: {username: 'ckey_6bf60a7bf22d4a309dbe74f3c5c'}})
+        const resp = await axios.get(api_call, {auth: {username: 'ckey_95dd22a9ccd040988f1ff84091c'}})
 
         // Organize response data to insert into graph
         setGraph(resp.data.data.items.map(i => ({x:i.opening_date, y:i.floor_price_quote_7d})).reverse())
@@ -88,7 +88,7 @@ export default function CollectionView({light, vibrant, dark}) {
   const handleCollection = async() => {
     let collection = []
     try{
-      const resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/`,{auth: {username: 'ckey_6bf60a7bf22d4a309dbe74f3c5c'}})
+      const resp = await axios.get(`https://api.covalenthq.com/v1/${blockchain_id}/nft_market/collection/${address_id}/`,{auth: {username: 'ckey_95dd22a9ccd040988f1ff84091c'}})
       setData([...resp.data.data.items])
       if(CONFIG.TEMPLATE.title !== "" && !address){
         CONFIG.TEMPLATE.title = `${resp.data.data.items[0].collection_name !== "" ? resp.data.data.items[0].collection_name : CONFIG.TEMPLATE.title } Dashboard`
@@ -112,18 +112,18 @@ export default function CollectionView({light, vibrant, dark}) {
         <Banner
           img={CONFIG.TEMPLATE.banner_picture !== "" ? CONFIG.TEMPLATE.banner_picture : null}
           head={CONFIG.TEMPLATE.title}
-          subhead={'Code Template'}
+          subhead={'Defi Insurance'}
           color={vibrant}
         />
         <div className="main">
           {!address ?
-          <div className="global" style={{color:light ? light :'#FF4C8B'}} onClick={()=>{history.push('/global')}}>
-            Global View 
-             <Icon icon={'chevron-right'} size={24} intent="primary" color={light ? light : '#FF4C8B'} className='icon'/>
+          <div className="global" style={{color:light ? light :'#7ed957'}} onClick={()=>{history.push('/global')}}>
+            Token ID List 
+             <Icon icon={'chevron-right'} size={24} intent="primary" color={light ? light : '#7ed957'} className='icon'/>
           </div>
           :
-          <div className="back" style={{color:light ? light : '#FF4C8B'}} onClick={()=>{history.goBack()}}>
-            <Icon icon={'chevron-left'} size={24} intent="primary" color={light ? light : '#FF4C8B'} className='icon'/>
+          <div className="back" style={{color:light ? light : '#7ed957'}} onClick={()=>{history.goBack()}}>
+            <Icon icon={'chevron-left'} size={24} intent="primary" color={light ? light : '#7ed957'} className='icon'/>
             Back
           </div>
           }
@@ -151,7 +151,7 @@ export default function CollectionView({light, vibrant, dark}) {
                       window.open(`https://snowtrace.io/address/${address_id}`, "_blank")
                     }
 
-                  }}>{address_id} <Icon icon={'share'} size={15} intent="primary" color={light ? light : '#FF4C8B'} className='share'/></h3>
+                  }}>{address_id} <Icon icon={'share'} size={15} intent="primary" color={light ? light : '#7ed957'} className='share'/></h3>
                   <table className="collection-table" >
                     <tr className="title-row" style={{color:light}}>
                       <td>Ticker Symbol</td>
@@ -196,7 +196,7 @@ export default function CollectionView({light, vibrant, dark}) {
             </div>
           }
           <div className="bottom-section">
-            <h1>NFT Preview (First 5)</h1>
+            <h1>NFT Available List (First 5)</h1>
             {activeLoader ? 
             <div className="collection-load">
               <img src={Loader} alt="No preview available"></img>

@@ -25,7 +25,7 @@ const options = {
                 type: 'linear',
                 position: 'left',
                 ticks: {
-                  color:'#FF4C8B',
+                  color:'#7ed957',
                   callback: function(value, index, values) {
                     if(parseInt(value) >= 1000){
                       return '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -59,8 +59,8 @@ const graphData = {
       label: 'Floor Price Last 7 Days (USD) ',
       yAxisID: 'A',
       data: quote,
-      borderColor: 'rgb(255, 99, 132)',
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      borderColor: 'rgb(126, 217, 87)',
+      backgroundColor: 'rgba(126, 217, 87)',
     },
     {
       label: 'Floor Price Last 7 Days (Gas Token Price)',

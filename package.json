@@ -1,8 +1,8 @@
 {
-    "name": "nft-market-demo",
+    "name": "nft-market",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://covalenthq.github.io/nft-dashboard-template",
+    "homepage": "",
     "dependencies": {
         "@blueprintjs/core": "^3.52.0",
         "@testing-library/jest-dom": "^5.12.0",

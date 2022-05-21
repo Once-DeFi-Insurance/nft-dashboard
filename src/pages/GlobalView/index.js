@@ -3,7 +3,7 @@ import SelectDropdown from '../../comps/selectDropdown'
 import Table from '../../comps/table'
 import Banner from '../../comps/banner'
 import Back from '../../assets/Back.svg'
-import { useHistory } from "react-router-dom";
+import {useParams, useHistory } from "react-router-dom";
 import { CONFIG } from '../../config'
 import Loader from '../../assets/covalent-logo-loop_dark_v2.gif';
 import { Icon, IconSize,} from "@blueprintjs/core";
@@ -13,6 +13,7 @@ import './style.css'
 
 
 export default function LandingPage({light, dark, vibrant}) {
+  let { address,  chainId } = useParams();
   
     const history = useHistory();
     const [chain, setChain] = useState(CONFIG.TEMPLATE.block_chain_id)
@@ -40,7 +41,7 @@ export default function LandingPage({light, dark, vibrant}) {
     const handleMarket = async(id) => {
       setLoader(true)
       try{
-        const resp = await axios.get(`https://api.covalenthq.com/v1/${id}/nft_market/`, {auth: {username: 'ckey_6bf60a7bf22d4a309dbe74f3c5c'}})
+        const resp = await axios.get(`https://api.covalenthq.com/v1/80001/tokens/0x2ad359e43F43D01322f6d3aEea546E7e0f4709E1/nft_token_ids/`, {auth: {username: 'ckey_95dd22a9ccd040988f1ff84091c'}})
         console.log(resp.data.data.items)
         setMarket(resp.data.data.items)
         setLoader(false)
@@ -57,8 +58,8 @@ export default function LandingPage({light, dark, vibrant}) {
           color={vibrant}
         />
       <div className = "main">
-          <div className="back" style={{color:light ? light : '#FF4C8B'}} onClick={()=>{history.goBack()}}>
-            <Icon icon={'chevron-left'} size={24} intent="primary" color={light ? light : '#FF4C8B'} className='icon'/>
+          <div className="back" style={{color:light ? light : '#7ed957'}} onClick={()=>{history.goBack()}}>
+            <Icon icon={'chevron-left'} size={24} intent="primary" color={light ? light : '#7ed957'} className='icon'/>
             Back
           </div>
         <div className="content">

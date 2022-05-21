@@ -37,10 +37,11 @@ export default function NFTView({light, dark, vibrant}) {
 
   // Request for nft metadata 
   const handleNft = async() => {
-    const resp = await axios.get(`https://api.covalenthq.com/v1/${chainId}/tokens/${address}/nft_metadata/${id}/?quote-currency=USD&format=JSON`, {auth: {username: 'ckey_6bf60a7bf22d4a309dbe74f3c5c'}})
+    const resp = await axios.get(`https://api.covalenthq.com/v1/${chainId}/tokens/${address}/nft_metadata/${id}/?quote-currency=USD&format=JSON`, {auth: {username: 'ckey_95dd22a9ccd040988f1ff84091c'}})
     setNft(resp.data.data.items[0].nft_data !== null ? resp.data.data.items[0].nft_data[0] : {external_data : {image: ""}})
     setLoader(false)
   }
+ 
 
   return (
     <>
@@ -57,8 +58,8 @@ export default function NFTView({light, dark, vibrant}) {
           color={vibrant}
         />
         <div className="main">
-          <div className="back" style={{color:light ? light : '#FF4C8B'}} onClick={()=>{history.goBack()}}>
-            <Icon icon={'chevron-left'} size={24} intent="primary" color={light ? light : '#FF4C8B'} className='icon'/>
+          <div className="back" style={{color:light ? light : '#7ed957'}} onClick={()=>{history.goBack()}}>
+            <Icon icon={'chevron-left'} size={24} intent="primary" color={light ? light : '#7ed957'} className='icon'/>
             Back
           </div>
           <NftDetails
